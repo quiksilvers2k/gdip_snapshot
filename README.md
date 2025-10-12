@@ -19,4 +19,4 @@ gdip_snapshot 0 0 1920 1080 output.jpg  # Grab 1920x1080 screenshot starting at 
 ```
 
 All Rust source code is original and independently written.  
-Licensed under the terms of the [MIT License](LICENSE)
+Licensed under the terms of the [MIT License](LICENSE.md)

@@ -116,8 +116,9 @@ fn clsid_for_extension(ext: &str) -> windows::core::Result<GUID> {
     }
     // normalize the requested extension (".png", ".jpg", ...)
     let want = format!(".{}", ext.trim_start_matches('.')).to_ascii_lowercase();
-    // iterate the array portion at the beginning of the buffer. Each struct's pointer
-    // fields point into the same 'buf', so 'buf' must stay alive until we finish.
+    // iterate the array portion at the beginning of the allocation. Each struct's pointer
+    // fields point into the same allocated block, so 'encoders_ptr' must stay alive until
+    // we finish.
     for i in 0..(num as usize) {
         let info = unsafe { &*encoders_ptr.add(i) };
         // some codecs may not provide FilenameExtension.
